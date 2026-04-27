@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home1/brunoe85/public_html/
+    - /bin/cp -Rf index.html $DEPLOYPATH
+    - /bin/cp -Rf img $DEPLOYPATH
+    - /bin/cp -Rf video $DEPLOYPATH

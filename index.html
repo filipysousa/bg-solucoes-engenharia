@@ -27,10 +27,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
 .ham span{display:block;width:24px;height:2px;background:white;border-radius:2px}
 
-.hero{min-height:100vh;display:flex;align-items:center;padding:110px 5% 70px;position:relative;overflow:hidden;background:var(--black)}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:space-between;gap:48px;padding:110px 5% 70px;position:relative;overflow:hidden;background:var(--black)}
 .hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(42,122,42,.025) 0,rgba(42,122,42,.025) 1px,transparent 1px,transparent 72px),repeating-linear-gradient(0deg,rgba(42,122,42,.025) 0,rgba(42,122,42,.025) 1px,transparent 1px,transparent 72px)}
 .hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(42,122,42,.14) 0%,transparent 70%);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-content{position:relative;z-index:2;max-width:560px;flex:1;min-width:0}
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(42,122,42,.13);border:1px solid rgba(42,122,42,.38);color:var(--acc2);padding:6px 18px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .5s ease both}
 .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
@@ -42,7 +42,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .btn-wa:hover{background:var(--green-l);transform:translateY(-2px)}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);padding:15px 30px;border-radius:3px;font-size:15px;font-weight:500;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:border-color .2s,color .2s}
 .btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
-.hero-deco{position:absolute;right:4%;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-size:clamp(120px,16vw,220px);font-weight:800;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+.hero-deco{display:none}
+.hero-deck-outer{position:relative;z-index:2;flex-shrink:0}
+.hero-deck-wrap{width:480px;height:600px;position:relative;cursor:grab;user-select:none}
+.hero-deck-wrap:active{cursor:grabbing}
+.deck-card{position:absolute;inset:0;border-radius:16px;overflow:hidden;transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .45s ease,box-shadow .55s;border:2px solid rgba(255,255,255,.07)}
+.deck-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.deck-card.pos-0{transform:rotate(-1deg) translate(0,0) scale(1);z-index:10;opacity:1;box-shadow:0 32px 80px rgba(0,0,0,.75),0 0 0 1px rgba(42,122,42,.35)}
+.deck-card.pos-1{transform:rotate(5deg) translate(22px,16px) scale(.94);z-index:9;opacity:1;box-shadow:0 18px 48px rgba(0,0,0,.5)}
+.deck-card.pos-2{transform:rotate(10deg) translate(44px,32px) scale(.88);z-index:8;opacity:.8;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.deck-card.pos-back{transform:rotate(14deg) translate(66px,48px) scale(.82);z-index:7;opacity:0;pointer-events:none}
+.deck-card.is-dragging{transition:none}
+.deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
+.deck-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s;line-height:1;padding:0}
+.deck-btn:hover{background:var(--green);color:white;border-color:var(--green)}
+.deck-counter{font-size:12px;color:rgba(255,255,255,.35);letter-spacing:.06em;font-family:'Barlow Condensed',sans-serif;min-width:38px;text-align:center}
 
 .stats-bar{background:var(--green-d);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(4,1fr)}
 .stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
@@ -144,7 +158,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
   .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
   .stat:nth-last-child(-n+2){border-bottom:none}
   .c-cards{grid-template-columns:1fr}
-  .hero-deco{display:none}
+  .hero-deck-outer{display:none}
   footer{flex-direction:column;text-align:center}
   .section,#sobre{padding:60px 5%}
   .campo-fotos{grid-template-columns:repeat(2,1fr)}
@@ -179,7 +193,14 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
       <a href="#servicos" class="btn-ghost">Ver Serviços ↓</a>
     </div>
   </div>
-  <div class="hero-deco">BG</div>
+  <div class="hero-deck-outer">
+    <div class="hero-deck-wrap" id="heroDeck"></div>
+    <div class="deck-nav">
+      <button class="deck-btn" id="deckPrev" aria-label="Anterior">&#8249;</button>
+      <span class="deck-counter" id="deckCounter">1/16</span>
+      <button class="deck-btn" id="deckNext" aria-label="Próxima">&#8250;</button>
+    </div>
+  </div>
 </section>
 
 <div class="stats-bar">
@@ -197,7 +218,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
   </div>
   <div class="srv-grid">
     <div class="srv">
-      <img class="srv-img" src="img/nr13 - medicao de espessura.jpeg" alt="Medição de espessura em caldeira – NR 13">
+      <img class="srv-img" src="img/medicao-espessura-nr13.jpeg" alt="Medição de espessura em caldeira – NR 13">
       <div class="srv-icon">📋</div>
       <div class="srv-nr">Laudos Técnicos · NR 11 / 12 / 13</div>
       <h3>Laudos e Relatórios de Engenharia</h3>
@@ -221,7 +242,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
       </ul>
     </div>
     <div class="srv">
-      <img class="srv-img" src="img/end - ensaio nao destrutivo.jpeg" alt="Ensaio Não Destrutivo por Líquido Penetrante">
+      <img class="srv-img" src="img/end-lp-anel-trinca.jpeg" alt="Ensaio Não Destrutivo por Líquido Penetrante">
       <div class="srv-icon">🔬</div>
       <div class="srv-nr">END · Ensaios Não Destrutivos</div>
       <h3>Ensaios Não Destrutivos</h3>
@@ -233,7 +254,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
       </ul>
     </div>
     <div class="srv">
-      <img class="srv-img" src="img/nr12 - projeto executivo.jpeg" alt="Operação de máquina industrial – NR 12">
+      <img class="srv-img" src="img/enfardadeira-nr12.jpeg" alt="Operação de máquina industrial – NR 12">
       <div class="srv-icon">🔧</div>
       <div class="srv-nr">Gestão · Manutenção</div>
       <h3>Planos de Manutenção de Equipamentos</h3>
@@ -299,16 +320,16 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
   </div>
   <div class="campo-wrap">
     <div class="campo-video">
-      <video controls preload="none" poster="img/nr13 - medicao de espessura.jpeg">
-        <source src="video/nr13 - medicao de espessura.mp4" type="video/mp4">
+      <video controls preload="none" poster="img/medicao-espessura-nr13.jpeg">
+        <source src="video/medicao-espessura-nr13.mp4" type="video/mp4">
       </video>
       <div class="campo-legend"><strong>NR 13</strong> Medição de espessura por ultrassom em vaso de pressão</div>
     </div>
     <div class="campo-fotos">
-      <div class="campo-foto"><img src="img/nr13 - medicao de espessura.jpeg" alt="Técnicos em vaso de pressão – NR 13"></div>
-      <div class="campo-foto"><img src="img/end - ensaio nao destrutivo.jpeg" alt="Ensaio não destrutivo por líquido penetrante"></div>
-      <div class="campo-foto"><img src="img/nr35.jpeg" alt="Trabalho em altura com linha de vida – NR 35"></div>
-      <div class="campo-foto"><img src="img/nr12 - projeto executivo.jpeg" alt="Operação de máquina industrial – NR 12"></div>
+      <div class="campo-foto"><img src="img/medicao-espessura-nr13.jpeg" alt="Técnicos em vaso de pressão – NR 13"></div>
+      <div class="campo-foto"><img src="img/end-lp-anel-trinca.jpeg" alt="Ensaio não destrutivo por líquido penetrante"></div>
+      <div class="campo-foto"><img src="img/trabalho-altura-nr35.jpeg" alt="Trabalho em altura com linha de vida – NR 35"></div>
+      <div class="campo-foto"><img src="img/enfardadeira-nr12.jpeg" alt="Operação de máquina industrial – NR 12"></div>
     </div>
   </div>
 </section>
@@ -350,7 +371,7 @@ footer p{font-size:12px;color:rgba(255,255,255,.22)}
       </ul>
     </div>
     <div class="sobre-img">
-      <img src="img/nr35.jpeg" alt="Equipe BG Soluções em trabalho em altura – NR 35">
+      <img src="img/trabalho-altura-nr35.jpeg" alt="Equipe BG Soluções em trabalho em altura – NR 35">
     </div>
   </div>
 </section>
@@ -422,6 +443,111 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});menu.style.cssText='';}
   });
 });
+(function(){
+  const SLIDES=[
+    {src:'img/medicao-espessura-nr13.jpeg',alt:'Medição de espessura em caldeira – NR 13'},
+    {src:'img/trabalho-altura-nr35.jpeg',alt:'Trabalho em altura com linha de vida – NR 35'},
+    {src:'img/end-lp-anel-trinca.jpeg',alt:'Ensaio não destrutivo por líquido penetrante'},
+    {src:'img/enfardadeira-nr12.jpeg',alt:'Inspeção de máquinas – NR 12'},
+    {src:'img/projeto-cad-solidworks.jpeg',alt:'Projeto mecânico 3D em SolidWorks'},
+    {src:'img/icamento-vaso-guindaste-nr13.jpeg',alt:'Içamento de vaso de pressão – NR 13'},
+    {src:'img/motor-protecao-nr12.jpeg',alt:'Motor industrial com proteção – NR 12'},
+    {src:'img/protecao-coletiva-nr12-a.jpeg',alt:'Proteção coletiva instalada – NR 12'},
+    {src:'img/protecao-coletiva-nr12-b.jpeg',alt:'Proteção coletiva em base de motor – NR 12'},
+    {src:'img/protecao-transmissao-nr12.jpeg',alt:'Proteção de transmissão – NR 12'},
+    {src:'img/inspecao-prensa-nr12.jpeg',alt:'Inspeção de prensa industrial – NR 12'},
+    {src:'img/end-lp-gancho-a.jpeg',alt:'Ensaio LP em gancho de içamento'},
+    {src:'img/end-lp-setup-completo.jpeg',alt:'Kit completo de ensaio por líquido penetrante'},
+    {src:'img/end-lp-gancho-b.jpeg',alt:'Resultado ensaio LP – gancho BS05'},
+    {src:'img/vasos-pressao-nr13.jpeg',alt:'Vasos de pressão em instalação industrial – NR 13'},
+    {src:'img/manometro-vaso-nr13.jpeg',alt:'Manômetro em vaso de pressão – NR 13'},
+  ];
+  const wrap=document.getElementById('heroDeck');
+  const counter=document.getElementById('deckCounter');
+  if(!wrap)return;
+  const n=SLIDES.length;
+  let cur=0,locked=false,timer;
+
+  const cards=SLIDES.map((s,i)=>{
+    const c=document.createElement('div');
+    c.className='deck-card';
+    const img=document.createElement('img');
+    img.src=s.src;img.alt=s.alt;img.loading=i<3?'eager':'lazy';
+    c.appendChild(img);
+    wrap.appendChild(c);
+    return c;
+  });
+
+  function getPos(i){
+    const rel=((i-cur)%n+n)%n;
+    if(rel===0)return'pos-0';
+    if(rel===1)return'pos-1';
+    if(rel===2)return'pos-2';
+    return'pos-back';
+  }
+
+  function update(){
+    cards.forEach((c,i)=>c.className='deck-card '+getPos(i));
+    if(counter)counter.textContent=(cur+1)+'/'+n;
+  }
+
+  function go(dir){
+    if(locked)return;
+    locked=true;
+    cur=(cur+dir+n)%n;
+    update();
+    clearInterval(timer);
+    timer=setInterval(()=>go(1),3800);
+    setTimeout(()=>locked=false,350);
+  }
+
+  document.getElementById('deckPrev').addEventListener('click',e=>{e.stopPropagation();go(-1);});
+  document.getElementById('deckNext').addEventListener('click',e=>{e.stopPropagation();go(1);});
+  wrap.addEventListener('click',e=>{
+    const c=e.target.closest('.deck-card');
+    if(c&&c.classList.contains('pos-1'))go(1);
+  });
+
+  // Arrastar com mouse
+  let dragX=0,dragging=false;
+
+  wrap.addEventListener('mousedown',e=>{
+    dragX=e.clientX;
+    dragging=true;
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove',e=>{
+    if(!dragging)return;
+    const dx=e.clientX-dragX;
+    const front=cards.find(c=>c.classList.contains('pos-0'));
+    if(front){
+      front.classList.add('is-dragging');
+      const clamp=Math.max(-100,Math.min(100,dx));
+      front.style.transform=`rotate(${-1+clamp*0.04}deg) translateX(${clamp*0.35}px) scale(1)`;
+    }
+  });
+
+  document.addEventListener('mouseup',e=>{
+    if(!dragging)return;
+    dragging=false;
+    const front=cards.find(c=>c.classList.contains('pos-0'));
+    if(front){front.classList.remove('is-dragging');front.style.transform='';}
+    const dx=e.clientX-dragX;
+    if(Math.abs(dx)>60)go(dx<0?1:-1);
+  });
+
+  // Arrastar com toque (mobile)
+  wrap.addEventListener('touchstart',e=>{dragX=e.touches[0].clientX;},{passive:true});
+  wrap.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-dragX;
+    if(Math.abs(dx)>55)go(dx<0?1:-1);
+  },{passive:true});
+
+  update();
+  timer=setInterval(()=>go(1),3800);
+})();
+
 document.addEventListener('click',e=>{
   if(!menu.contains(e.target)&&!ham.contains(e.target)&&menu.style.display==='flex')menu.style.cssText='';
 });
