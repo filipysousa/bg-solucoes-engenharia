@@ -46,12 +46,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero-deck-outer{position:relative;z-index:2;flex-shrink:0}
 .hero-deck-wrap{width:480px;height:600px;position:relative;cursor:grab;user-select:none}
 .hero-deck-wrap:active{cursor:grabbing}
-.deck-card{position:absolute;inset:0;border-radius:16px;overflow:hidden;transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .45s ease,box-shadow .55s;border:2px solid rgba(255,255,255,.07)}
+.deck-card{position:absolute;inset:0;border-radius:16px;overflow:hidden;transition:transform .7s cubic-bezier(.25,.46,.45,.94),opacity .6s ease,box-shadow .7s;border:2px solid rgba(255,255,255,.07)}
 .deck-card img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;user-select:none;-webkit-user-drag:none}
 .deck-card.pos-0{transform:rotate(-1deg) translate(0,0) scale(1);z-index:10;opacity:1;box-shadow:0 32px 80px rgba(0,0,0,.75),0 0 0 1px rgba(42,122,42,.35)}
-.deck-card.pos-1{transform:rotate(5deg) translate(22px,16px) scale(.94);z-index:9;opacity:1;box-shadow:0 18px 48px rgba(0,0,0,.5)}
-.deck-card.pos-2{transform:rotate(10deg) translate(44px,32px) scale(.88);z-index:8;opacity:.8;box-shadow:0 8px 24px rgba(0,0,0,.4)}
-.deck-card.pos-back{transform:rotate(14deg) translate(66px,48px) scale(.82);z-index:7;opacity:0;pointer-events:none}
+.deck-card.pos-1{transform:rotate(6deg) translate(34px,24px) scale(.90);z-index:9;opacity:1;box-shadow:0 18px 48px rgba(0,0,0,.5)}
+.deck-card.pos-2{transform:rotate(13deg) translate(68px,48px) scale(.80);z-index:8;opacity:.75;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.deck-card.pos-back{transform:rotate(18deg) translate(102px,72px) scale(.72);z-index:7;opacity:0;pointer-events:none}
+.deck-card.pos-exit-left{transform:rotate(-12deg) translateX(-95%) translateY(-5%) scale(.86);z-index:11;opacity:0}
+.deck-card.pos-exit-right{transform:rotate(12deg) translateX(95%) translateY(-5%) scale(.86);z-index:11;opacity:0}
 .deck-card.is-dragging{transition:none}
 .deck-nav{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:18px}
 .deck-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.7);width:38px;height:38px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s,border-color .2s;line-height:1;padding:0}
@@ -500,11 +502,18 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
   function go(dir){
     if(locked)return;
     locked=true;
+    const exitIdx=cur;
+    const exitCard=cards[exitIdx];
     cur=(cur+dir+n)%n;
-    update();
+    // Exit card flies off screen instead of teleporting behind
+    exitCard.className='deck-card '+(dir>0?'pos-exit-left':'pos-exit-right');
+    // All other cards slide to their new positions
+    cards.forEach((c,i)=>{if(i!==exitIdx)c.className='deck-card '+getPos(i);});
+    if(counter)counter.textContent=(cur+1)+'/'+n;
     clearInterval(timer);
     timer=setInterval(()=>go(1),3800);
-    setTimeout(()=>locked=false,350);
+    // After exit animation, quietly park card at back (already invisible)
+    setTimeout(()=>{exitCard.className='deck-card pos-back';locked=false;},680);
   }
 
   document.getElementById('deckPrev').addEventListener('click',e=>{e.stopPropagation();go(-1);});
