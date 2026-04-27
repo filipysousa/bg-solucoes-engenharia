@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BG Soluções e Engenharia | Fortaleza - CE</title>
+<meta name="description" content="BG Soluções e Engenharia – laudos técnicos NR 11/12/13, linhas de vida NR 35, ensaios não destrutivos e consultoria em engenharia mecânica para indústrias em Fortaleza-CE.">
+<meta property="og:title" content="BG Soluções e Engenharia | Fortaleza - CE">
+<meta property="og:description" content="Soluções técnicas para ambientes mais seguros. Laudos, inspeções, ensaios não destrutivos, linhas de vida e consultoria industrial em Fortaleza-CE.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2a7a2a;--green-l:#3a9a3a;--green-d:#1a5a1a;--black:#0e0e0e;--dark:#161616;--gray:#242424;--gray2:#2e2e2e;--white:#fff;--acc:#4caf50;--acc2:#81c784}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',sans-serif;background:var(--black);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;background:rgba(10,10,10,.96);border-bottom:1px solid rgba(42,122,42,.25);backdrop-filter:blur(10px)}
+.nav-brand{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;letter-spacing:.04em;color:white}
+.nav-brand span{color:var(--acc)}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.65);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--acc)}
+.nav-cta{background:var(--green);color:white;padding:9px 22px;border-radius:3px;font-size:13px;font-weight:700;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:background .2s}
+.nav-cta:hover{background:var(--green-l)}
+.ham{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.ham span{display:block;width:24px;height:2px;background:white;border-radius:2px}
+
+.hero{min-height:100vh;display:flex;align-items:center;padding:110px 5% 70px;position:relative;overflow:hidden;background:var(--black)}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(42,122,42,.025) 0,rgba(42,122,42,.025) 1px,transparent 1px,transparent 72px),repeating-linear-gradient(0deg,rgba(42,122,42,.025) 0,rgba(42,122,42,.025) 1px,transparent 1px,transparent 72px)}
+.hero-glow{position:absolute;top:-100px;right:-100px;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(42,122,42,.14) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(42,122,42,.13);border:1px solid rgba(42,122,42,.38);color:var(--acc2);padding:6px 18px;border-radius:30px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;animation:fadeUp .5s ease both}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--acc);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+.hero h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(44px,6.5vw,82px);font-weight:800;line-height:.98;text-transform:uppercase;letter-spacing:-.01em;margin-bottom:26px;animation:fadeUp .5s .08s ease both}
+.hero h1 em{color:var(--acc);font-style:normal}
+.hero-sub{font-size:17px;color:rgba(255,255,255,.58);line-height:1.75;max-width:520px;font-weight:300;margin-bottom:44px;animation:fadeUp .5s .16s ease both}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fadeUp .5s .24s ease both}
+.btn-wa{display:inline-flex;align-items:center;gap:10px;background:var(--green);color:white;padding:15px 30px;border-radius:3px;font-size:15px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:background .2s,transform .15s}
+.btn-wa:hover{background:var(--green-l);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.75);padding:15px 30px;border-radius:3px;font-size:15px;font-weight:500;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:border-color .2s,color .2s}
+.btn-ghost:hover{border-color:var(--acc);color:var(--acc)}
+.hero-deco{position:absolute;right:4%;top:50%;transform:translateY(-50%);font-family:'Barlow Condensed',sans-serif;font-size:clamp(120px,16vw,220px);font-weight:800;color:rgba(255,255,255,.025);line-height:1;pointer-events:none;user-select:none}
+
+.stats-bar{background:var(--green-d);border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:28px 20px;text-align:center;border-right:1px solid rgba(255,255,255,.1)}
+.stat:last-child{border-right:none}
+.stat-n{font-family:'Barlow Condensed',sans-serif;font-size:36px;font-weight:800;line-height:1;color:white;margin-bottom:5px}
+.stat-l{font-size:11px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.07em}
+
+.section{padding:96px 5%}
+.s-tag{display:inline-block;color:var(--acc);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:12px}
+.s-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(30px,4vw,50px);font-weight:700;text-transform:uppercase;line-height:1.05;margin-bottom:16px}
+.s-sub{font-size:16px;color:rgba(255,255,255,.52);line-height:1.75;max-width:520px;font-weight:300}
+
+#servicos{background:var(--dark)}
+.s-head{margin-bottom:56px}
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:2px}
+.srv{background:var(--gray2);padding:34px 28px;border-left:3px solid transparent;transition:border-color .2s,background .2s}
+.srv:hover{border-left-color:var(--acc);background:#333}
+.srv-icon{width:46px;height:46px;border-radius:8px;background:rgba(42,122,42,.14);border:1px solid rgba(42,122,42,.3);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.srv-nr{font-size:11px;font-weight:700;color:var(--acc);letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.srv h3{font-family:'Barlow Condensed',sans-serif;font-size:21px;font-weight:700;text-transform:uppercase;color:white;margin-bottom:10px}
+.srv p{font-size:13.5px;color:rgba(255,255,255,.5);line-height:1.65}
+.srv ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.srv ul li{font-size:13px;color:rgba(255,255,255,.4);padding-left:14px;position:relative}
+.srv ul li::before{content:'–';position:absolute;left:0;color:var(--acc)}
+
+#diferencial{background:var(--black)}
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.dif-box{background:var(--green-d);border:1px solid rgba(42,122,42,.35);border-radius:6px;padding:48px 40px;position:relative;overflow:hidden}
+.dif-box::after{content:'BG';position:absolute;bottom:-24px;right:-8px;font-family:'Barlow Condensed',sans-serif;font-size:180px;font-weight:800;color:rgba(255,255,255,.04);line-height:1;pointer-events:none}
+.dif-quote{font-family:'Barlow Condensed',sans-serif;font-size:26px;font-weight:700;line-height:1.35;text-transform:uppercase;color:white;margin-bottom:22px}
+.dif-quote em{color:var(--acc);font-style:normal}
+.dif-line{width:44px;height:3px;background:var(--acc);margin-bottom:22px}
+.dif-txt{font-size:14.5px;color:rgba(255,255,255,.58);line-height:1.8}
+.setores{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.setor{background:rgba(42,122,42,.12);border:1px solid rgba(42,122,42,.3);color:var(--acc2);font-size:12px;font-weight:600;padding:6px 14px;border-radius:3px;letter-spacing:.04em;text-transform:uppercase}
+
+#sobre{background:var(--gray)}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.sobre-checks{list-style:none;display:flex;flex-direction:column;gap:14px;margin-top:28px}
+.sobre-checks li{display:flex;align-items:flex-start;gap:13px;font-size:14.5px;color:rgba(255,255,255,.72);line-height:1.55}
+.ck{width:22px;height:22px;border-radius:50%;flex-shrink:0;margin-top:1px;background:rgba(42,122,42,.18);border:1px solid rgba(42,122,42,.45);display:flex;align-items:center;justify-content:center;color:var(--acc);font-size:12px;font-weight:700}
+.sobre-img{background:var(--gray2);border-radius:6px;overflow:hidden;aspect-ratio:4/3;position:relative;border:1px solid rgba(255,255,255,.06)}
+.sobre-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sobre-placeholder{text-align:center;padding:40px}
+.sobre-placeholder .bi{font-size:64px;opacity:.3;margin-bottom:16px}
+.sobre-placeholder p{font-size:13px;color:rgba(255,255,255,.25)}
+
+#tipos{background:var(--dark);padding:80px 5%}
+.tipos-head{text-align:center;margin-bottom:56px}
+.tipos-head .s-sub{margin:0 auto}
+.tipos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.tipo{background:var(--gray2);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:38px 26px;text-align:center;transition:border-color .2s,transform .2s}
+.tipo:hover{border-color:rgba(42,122,42,.45);transform:translateY(-4px)}
+.tipo-ico{font-size:38px;display:block;margin-bottom:18px}
+.tipo h3{font-family:'Barlow Condensed',sans-serif;font-size:19px;font-weight:700;text-transform:uppercase;color:white;margin-bottom:10px}
+.tipo p{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65}
+
+#contato{background:var(--black);text-align:center}
+.contato-wrap{max-width:700px;margin:0 auto}
+.contato-wrap .s-sub{margin:0 auto 44px}
+.c-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:44px}
+.c-card{background:var(--gray2);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:26px 16px}
+.c-card-ico{font-size:26px;margin-bottom:10px}
+.c-card h4{font-size:11px;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.1em;margin-bottom:7px}
+.c-card p{font-size:14px;color:white;font-weight:500}
+.c-card a{color:white;text-decoration:none}
+.wa-big{display:inline-flex;align-items:center;gap:14px;background:#25D366;color:white;padding:18px 48px;border-radius:5px;font-size:17px;font-weight:700;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:background .2s,transform .15s}
+.wa-big:hover{background:#1ebe5a;transform:translateY(-2px)}
+.wa-big svg{width:24px;height:24px;fill:white}
+
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.06);padding:36px 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.footer-brand{font-family:'Barlow Condensed',sans-serif;font-size:20px;font-weight:800;color:rgba(255,255,255,.4)}
+.footer-brand span{color:var(--green)}
+footer p{font-size:12px;color:rgba(255,255,255,.22)}
+
+.float-wa{position:fixed;bottom:26px;right:26px;z-index:300;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.38);transition:transform .2s}
+.float-wa:hover{transform:scale(1.1)}
+.float-wa svg{width:28px;height:28px;fill:white}
+
+.srv-img{width:calc(100% + 56px);height:180px;object-fit:cover;display:block;margin:-34px -28px 22px;border-bottom:1px solid rgba(255,255,255,.07)}
+#campo{background:var(--gray)}
+.campo-wrap{max-width:860px;margin:0 auto}
+.campo-video{border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);margin-bottom:16px;background:#000}
+.campo-video video{width:100%;display:block;max-height:460px}
+.campo-legend{padding:10px 16px;background:rgba(0,0,0,.45);font-size:13px;color:rgba(255,255,255,.45);display:flex;align-items:center;gap:8px}
+.campo-legend strong{color:var(--acc)}
+.campo-fotos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.campo-foto{aspect-ratio:1;overflow:hidden;border-radius:6px;border:1px solid rgba(255,255,255,.06)}
+.campo-foto img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.campo-foto:hover img{transform:scale(1.06)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:860px){
+  .nav-links{display:none}
+  .ham{display:flex}
+  .dif-grid,.sobre-grid{grid-template-columns:1fr;gap:36px}
+  .stats-bar{grid-template-columns:1fr 1fr}
+  .stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .stat:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
+  .stat:nth-last-child(-n+2){border-bottom:none}
+  .c-cards{grid-template-columns:1fr}
+  .hero-deco{display:none}
+  footer{flex-direction:column;text-align:center}
+  .section,#sobre{padding:60px 5%}
+  .campo-fotos{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <div class="nav-brand">BG <span>Soluções</span> e Engenharia</div>
+  <ul class="nav-links" id="nav-menu">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#diferencial">Diferenciais</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5585999971426?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="nav-cta">Solicitar Orçamento</a>
+  <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Engenharia Mecânica · Segurança Industrial · Fortaleza – CE</div>
+    <h1>Soluções técnicas<br>para ambientes<br><em>mais seguros</em></h1>
+    <p class="hero-sub">A BG Soluções e Engenharia é especializada em laudos técnicos, inspeções, ensaios não destrutivos, linhas de vida e consultoria para indústrias e empresas de equipamentos.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5585999971426?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20da%20BG%20Engenharia." class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Falar no WhatsApp
+      </a>
+      <a href="#servicos" class="btn-ghost">Ver Serviços ↓</a>
+    </div>
+  </div>
+  <div class="hero-deco">BG</div>
+</section>
+
+<div class="stats-bar">
+  <div class="stat"><div class="stat-n">NR 11</div><div class="stat-l">Movimentação de Materiais</div></div>
+  <div class="stat"><div class="stat-n">NR 12</div><div class="stat-l">Máquinas e Equipamentos</div></div>
+  <div class="stat"><div class="stat-n">NR 13</div><div class="stat-l">Caldeiras e Vasos de Pressão</div></div>
+  <div class="stat"><div class="stat-n">NR 35</div><div class="stat-l">Trabalho em Altura</div></div>
+</div>
+
+<section id="servicos" class="section">
+  <div class="s-head">
+    <span class="s-tag">Área de atuação</span>
+    <h2 class="s-title">Nossos Serviços</h2>
+    <p class="s-sub">Soluções completas em engenharia mecânica, segurança operacional e conformidade legal para sua empresa.</p>
+  </div>
+  <div class="srv-grid">
+    <div class="srv">
+      <img class="srv-img" src="img/nr13 - medicao de espessura.jpeg" alt="Medição de espessura em caldeira – NR 13">
+      <div class="srv-icon">📋</div>
+      <div class="srv-nr">Laudos Técnicos · NR 11 / 12 / 13</div>
+      <h3>Laudos e Relatórios de Engenharia</h3>
+      <p>Emissão de laudos e relatórios técnicos em conformidade com as normas regulamentadoras vigentes.</p>
+      <ul>
+        <li>NR 11 – Movimentação e Armazenamento de Materiais</li>
+        <li>NR 12 – Segurança em Máquinas e Equipamentos</li>
+        <li>NR 13 – Caldeiras, Vasos de Pressão e Tubulações</li>
+        <li>Laudos de conformidade técnica de máquinas</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <div class="srv-icon">🪜</div>
+      <div class="srv-nr">NR 35 · Projeto de Linha de Vida</div>
+      <h3>Linhas de Vida e Ancoragem</h3>
+      <p>Projeto, dimensionamento e instalação de sistemas de proteção para trabalho em altura, com emissão de ART.</p>
+      <ul>
+        <li>Linhas de vida horizontais e verticais</li>
+        <li>Sistemas em conformidade com a NR 35</li>
+        <li>Emissão de ART – Anotação de Responsabilidade Técnica</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <img class="srv-img" src="img/end - ensaio nao destrutivo.jpeg" alt="Ensaio Não Destrutivo por Líquido Penetrante">
+      <div class="srv-icon">🔬</div>
+      <div class="srv-nr">END · Ensaios Não Destrutivos</div>
+      <h3>Ensaios Não Destrutivos</h3>
+      <p>Avaliação de integridade estrutural sem comprometer o material, com técnicas certificadas nacionais e internacionais.</p>
+      <ul>
+        <li>Líquido Penetrante (LP)</li>
+        <li>Partículas Magnéticas (PM)</li>
+        <li>Ultrassom (UT)</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <img class="srv-img" src="img/nr12 - projeto executivo.jpeg" alt="Operação de máquina industrial – NR 12">
+      <div class="srv-icon">🔧</div>
+      <div class="srv-nr">Gestão · Manutenção</div>
+      <h3>Planos de Manutenção de Equipamentos</h3>
+      <p>Elaboração e implementação de planos de manutenção preventiva, corretiva e preditiva para frotas e equipamentos industriais.</p>
+      <ul>
+        <li>Análise de desempenho e disponibilidade de ativos</li>
+        <li>Manutenção de frotas veiculares e máquinas pesadas</li>
+        <li>Planejamento de equipamentos industriais</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <div class="srv-icon">⚙️</div>
+      <div class="srv-nr">Projetos Mecânicos</div>
+      <h3>Projetos Mecânicos e Industriais</h3>
+      <p>Desenvolvimento de projetos de máquinas, dispositivos e equipamentos especiais com embasamento técnico e normativo.</p>
+      <ul>
+        <li>Projetos de máquinas e equipamentos especiais</li>
+        <li>Estudos de melhoria de performance mecânica</li>
+        <li>Dimensionamento e cálculos estruturais</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <div class="srv-icon">⚠️</div>
+      <div class="srv-nr">Segurança · Análise de Risco</div>
+      <h3>Segurança Operacional e Análise de Risco</h3>
+      <p>Estudos de confiabilidade, análise de falhas mecânicas e investigação de acidentes envolvendo máquinas e equipamentos.</p>
+      <ul>
+        <li>Estudos de confiabilidade de equipamentos</li>
+        <li>Análise de falhas mecânicas</li>
+        <li>Investigação de acidentes industriais</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <div class="srv-icon">💡</div>
+      <div class="srv-nr">Eficiência Energética</div>
+      <h3>Eficiência Energética e Termodinâmica</h3>
+      <p>Estudos e projetos para otimização de processos industriais com foco em eficiência energética e sistemas térmicos.</p>
+      <ul>
+        <li>Eficiência energética em processos industriais</li>
+        <li>Projetos HVAC – ventilação e climatização industrial</li>
+        <li>Avaliação de sistemas térmicos</li>
+      </ul>
+    </div>
+    <div class="srv">
+      <div class="srv-icon">🎓</div>
+      <div class="srv-nr">Treinamentos Técnicos</div>
+      <h3>Treinamentos Técnicos</h3>
+      <p>Capacitação de equipes em operação segura, manutenção e normas regulamentadoras aplicáveis à engenharia mecânica.</p>
+      <ul>
+        <li>Operação e manutenção de máquinas</li>
+        <li>Treinamentos em NRs aplicáveis</li>
+        <li>Conscientização em segurança e eficiência</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="campo" class="section">
+  <div class="s-head" style="text-align:center">
+    <span class="s-tag">Trabalho real em campo</span>
+    <h2 class="s-title">Projetos em Campo</h2>
+    <p class="s-sub" style="margin:0 auto">Registros reais das nossas equipes em atuação nas indústrias parceiras.</p>
+  </div>
+  <div class="campo-wrap">
+    <div class="campo-video">
+      <video controls preload="none" poster="img/nr13 - medicao de espessura.jpeg">
+        <source src="video/nr13 - medicao de espessura.mp4" type="video/mp4">
+      </video>
+      <div class="campo-legend"><strong>NR 13</strong> Medição de espessura por ultrassom em vaso de pressão</div>
+    </div>
+    <div class="campo-fotos">
+      <div class="campo-foto"><img src="img/nr13 - medicao de espessura.jpeg" alt="Técnicos em vaso de pressão – NR 13"></div>
+      <div class="campo-foto"><img src="img/end - ensaio nao destrutivo.jpeg" alt="Ensaio não destrutivo por líquido penetrante"></div>
+      <div class="campo-foto"><img src="img/nr35.jpeg" alt="Trabalho em altura com linha de vida – NR 35"></div>
+      <div class="campo-foto"><img src="img/nr12 - projeto executivo.jpeg" alt="Operação de máquina industrial – NR 12"></div>
+    </div>
+  </div>
+</section>
+
+<section id="diferencial" class="section" style="background:var(--black)">
+  <div class="dif-grid">
+    <div class="dif-box">
+      <div class="dif-quote">Vivência multidisciplinar em <em>setores estratégicos</em> da indústria</div>
+      <div class="dif-line"></div>
+      <p class="dif-txt">Engenheiro com ampla experiência em empresas multimodais, garantindo uma visão abrangente e prática para desenvolver soluções personalizadas para diferentes realidades industriais e operacionais.</p>
+    </div>
+    <div>
+      <span class="s-tag">Por que nos escolher</span>
+      <h2 class="s-title">Nosso Diferencial</h2>
+      <p class="s-sub">Atuamos em setores de alta complexidade, o que nos dá uma visão completa das necessidades industriais reais.</p>
+      <div class="setores">
+        <span class="setor">🏭 Cimenteiras</span>
+        <span class="setor">🧵 Indústrias Têxteis</span>
+        <span class="setor">⚡ Geração de Energia</span>
+        <span class="setor">🏗️ Construção Civil</span>
+        <span class="setor">🏋️ Movimentação de Cargas</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="section" style="background:var(--gray)">
+  <div class="sobre-grid">
+    <div>
+      <span class="s-tag">Quem somos</span>
+      <h2 class="s-title">BG Soluções e Engenharia</h2>
+      <p class="s-sub">Especializada em serviços técnicos de engenharia com foco em segurança operacional, conformidade legal e desempenho de ativos.</p>
+      <ul class="sobre-checks">
+        <li><div class="ck">✓</div><span>Atuação junto a indústrias e empresas de locação de equipamentos, oferecendo soluções de maior confiabilidade, produtividade e redução de riscos</span></li>
+        <li><div class="ck">✓</div><span>Serviços de alta qualidade com embasamento normativo e responsabilidade técnica</span></li>
+        <li><div class="ck">✓</div><span>Comprometimento com excelência em segurança, manutenção e integridade estrutural dos nossos clientes</span></li>
+        <li><div class="ck">✓</div><span>Emissão de ART e documentação técnica completa em conformidade com normas vigentes</span></li>
+        <li><div class="ck">✓</div><span>Atendimento em Fortaleza e região com equipe técnica qualificada e comprometida</span></li>
+      </ul>
+    </div>
+    <div class="sobre-img">
+      <img src="img/nr35.jpeg" alt="Equipe BG Soluções em trabalho em altura – NR 35">
+    </div>
+  </div>
+</section>
+
+<section id="tipos" style="background:var(--dark);padding:80px 5%">
+  <div class="tipos-head">
+    <span class="s-tag">Como entregamos</span>
+    <h2 class="s-title">Tipos de Soluções</h2>
+    <p class="s-sub">Cada entrega com rigor técnico, responsabilidade e embasamento normativo.</p>
+  </div>
+  <div class="tipos-grid">
+    <div class="tipo"><span class="tipo-ico">🔍</span><h3>Inspeções</h3><p>Avaliação técnica de equipamentos garantindo conformidade com normas de segurança e desempenho operacional.</p></div>
+    <div class="tipo"><span class="tipo-ico">📐</span><h3>Projetos</h3><p>Projetos de segurança, linhas de vida, proteções coletivas e documentação técnica completa com ART.</p></div>
+    <div class="tipo"><span class="tipo-ico">🧪</span><h3>Ensaios END</h3><p>LP, PM e UT para avaliação da condição real de estruturas e equipamentos sem dano ao material.</p></div>
+    <div class="tipo"><span class="tipo-ico">📊</span><h3>Consultoria</h3><p>Gestão de integridade de equipamentos, planejamento de inspeções e adequação às normas regulamentadoras.</p></div>
+    <div class="tipo"><span class="tipo-ico">📋</span><h3>Laudos Técnicos</h3><p>Emissão de laudos e relatórios com embasamento normativo para NR 11, NR 12, NR 13 e outras regulamentações.</p></div>
+    <div class="tipo"><span class="tipo-ico">🎓</span><h3>Treinamentos</h3><p>Capacitação de equipes em operação, manutenção e normas de segurança da engenharia mecânica.</p></div>
+  </div>
+</section>
+
+<section id="contato" class="section" style="background:var(--black);text-align:center">
+  <div class="contato-wrap">
+    <span class="s-tag">Fale com a gente</span>
+    <h2 class="s-title">Solicite seu Orçamento</h2>
+    <p class="s-sub">Entre em contato agora e receba atendimento personalizado da nossa equipe de engenharia.</p>
+    <div class="c-cards">
+      <div class="c-card">
+        <div class="c-card-ico">📱</div>
+        <h4>WhatsApp</h4>
+        <p><a href="tel:+5585999971426">(85) 9 9997-1426</a></p>
+      </div>
+      <div class="c-card">
+        <div class="c-card-ico">✉️</div>
+        <h4>E-mail</h4>
+        <p><a href="mailto:bgsolucoeseengenharia@gmail.com" style="font-size:12px">bgsolucoeseengenharia@gmail.com</a></p>
+      </div>
+      <div class="c-card">
+        <div class="c-card-ico">📍</div>
+        <h4>Endereço</h4>
+        <p>Rua Cônego Braveza, 770<br>Fortaleza – CE</p>
+      </div>
+    </div>
+    <a href="https://wa.me/5585999971426?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20da%20BG%20Soluções%20e%20Engenharia." class="wa-big">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+      Falar no WhatsApp Agora
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">BG <span>Soluções</span> e Engenharia</div>
+  <p>Rua Cônego Braveza, 770 · Fortaleza – CE · bgsolucoeseengenharia@gmail.com</p>
+  <p>© 2025 BG Soluções e Engenharia Ltda. Todos os direitos reservados.</p>
+</footer>
+
+<a href="https://wa.me/5585999971426?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento." class="float-wa" title="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+const ham=document.getElementById('ham'),menu=document.getElementById('nav-menu');
+ham.addEventListener('click',()=>{
+  const open=menu.style.display==='flex';
+  menu.style.cssText=open?'':'display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:rgba(10,10,10,.98);padding:20px 5%;gap:18px;border-bottom:1px solid rgba(42,122,42,.2)';
+});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});menu.style.cssText='';}
+  });
+});
+document.addEventListener('click',e=>{
+  if(!menu.contains(e.target)&&!ham.contains(e.target)&&menu.style.display==='flex')menu.style.cssText='';
+});
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.background=window.scrollY>60?'rgba(8,8,8,.99)':'rgba(10,10,10,.96)';
+});
+</script>
+</body>
+</html>
